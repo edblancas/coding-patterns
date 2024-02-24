@@ -27,9 +27,7 @@ def longest_substr_with_k_distinct(k, str):
     max_len = 0
 
     for end in range(len(str)):
-        count = chars.setdefault(str[end], 1)
-        if count > 1:
-            chars[str[end]] = count + 1
+        chars[str[end]] = chars.get(str[end], 0) + 1
 
         while len(chars) > k:
             chars[str[start]] -= 1
@@ -56,3 +54,5 @@ class TestLongestSubstrWithKDistinct(unittest.TestCase):
     def test_longest_substr_with_k_distinct3(self):
         self.assertEqual(5, longest_substr_with_k_distinct(3, 'cbbebi'))
 
+if __name__ == '__main__':
+    unittest.main()
