@@ -1,3 +1,5 @@
+# EASY
+
 # Given an array of positive numbers and a positive number ‘S’, find the length
 # of the smallest contiguous subarray whose sum is greater than or equal to ‘S’.
 # Return 0, if no such subarray exists.
@@ -53,7 +55,7 @@ def smallest_subarray_with_given_sum(s, arr):
 
     for end in range(len(arr)):
         sum_win += arr[end]
-        
+
         while sum_win >= s:
             smallest_win = min(smallest_win, end - start + 1)
             sum_win -= arr[start]
