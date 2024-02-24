@@ -44,6 +44,14 @@ def longest_substr_with_k_distinct(k, str):
 
     return max_len
 
+# tc O(N)
+# The outer for loop runs for all characters and the inner while loop processes
+# each character only once, therefore the time complexity of the algorithm will be
+# O(N+N) which is asymptotically equivalent to  O(N).
+
+# sp O(K) as we will store at most k + 1 chars in the hashmap
+
+
 class TestLongestSubstrWithKDistinct(unittest.TestCase):
     def test_longest_substr_with_k_distinct(self):
         self.assertEqual(4, longest_substr_with_k_distinct(2, 'araaci'))
