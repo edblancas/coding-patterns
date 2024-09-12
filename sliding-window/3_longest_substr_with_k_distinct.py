@@ -1,7 +1,7 @@
 # MEDIUM
 
 # Given a string, find the length of the longest substring in it with no more
-# than K distinct characters.
+# than K distinct characters (but it could be less or equal).
 import unittest
 
 

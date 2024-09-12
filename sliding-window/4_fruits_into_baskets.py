@@ -54,3 +54,7 @@ class Test(unittest.TestCase):
 
     def test_fruits_into_baskets_2(self):
         self.assertEqual(5, fruits_into_baskets(['A', 'B', 'C', 'B', 'B', 'C']))
+
+
+if __name__ == '__main__':
+    unittest.main()
