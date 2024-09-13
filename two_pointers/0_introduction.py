@@ -1,3 +1,4 @@
+# easy
 # get the pair of elements that sum the target t in a sorted array arr
 
 def target_sum(arr, t):
