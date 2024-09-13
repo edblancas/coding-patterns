@@ -7,10 +7,10 @@ def search_triplets(arr):
     for i in range(len(arr)):
         if i > 0 and arr[i - 1] == arr[i]:
             continue
-        search_sum(arr, -arr[i], i+1, triplets)
+        search_pair(arr, -arr[i], i+1, triplets)
     return triplets
 
-def search_sum(arr, target_sum, lo, triplets):
+def search_pair(arr, target_sum, lo, triplets):
     hi = len(arr) - 1
     while lo < hi:
         curr_sum = arr[lo] + arr[hi]
@@ -26,6 +26,20 @@ def search_sum(arr, target_sum, lo, triplets):
             lo += 1
         else:
             hi -= 1
+
+"""
+Time complexity
+Sorting the array will take O(n log n) time complexity.
+The search_pair fn will take O(n) time, and we do this for every number in the
+    input array, so O(n^2).
+This means search_triplets will take O(n log n + n^2) time, wich is
+    asymptotically equivalent to O(n^)
+
+Space complexity
+Ignoring the space required for the output array, the space complexity
+    of the above algorithm will be o(n) wich is required for sorting.
+Py uses timsort that is O(n log n) time and O(n) space.
+"""
 
 import unittest
 
