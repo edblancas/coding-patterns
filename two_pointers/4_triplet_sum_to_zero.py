@@ -41,6 +41,44 @@ Ignoring the space required for the output array, the space complexity
 Py uses timsort that is O(n log n) time and O(n) space.
 """
 
+class Solution:
+    def threeSum(self, nums):
+        nums.sort()
+        triplets = []
+        def find_pair():
+            nonlocal triplets
+            target = -nums[i - 1]
+            lo = i
+            hi = len(nums) - 1
+            while lo < hi:
+                curr_sum = nums[lo] + nums[hi]
+                if curr_sum == target:
+                    triplets.append([-target, nums[lo], nums[hi]])
+                    lo += 1
+                    hi -= 1
+                    while lo < hi and nums[lo] == nums[lo - 1]:
+                        lo += 1
+                    while lo < hi and nums[hi] == nums[hi + 1]:
+                        hi -= 1
+                elif curr_sum < target:
+                    lo += 1
+                else:
+                    hi -= 1
+
+        for i in range(1, len(nums)):
+            if nums[i - 1] == nums[i]:
+                continue
+            find_pair()
+        return triplets
+# [-1,0,1,2,-1,-4]
+# this sol not work cuz we are skipping one -1,
+# cuz we are comparing ahead of the current,
+# the statement says the indices of the used numbers are distinct,
+# but noting that use number value repeated
+# [-4,-1,-1,0,1,2]
+# the result would be [[-1,0,1]]
+# and the corret one is [[-1,-1,2],[-1,0,1]]
+
 import unittest
 
 class TestSearchTriplets(unittest.TestCase):
