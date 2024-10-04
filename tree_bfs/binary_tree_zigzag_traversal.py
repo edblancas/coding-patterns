@@ -21,7 +21,7 @@ class Node:
 
 def dfs(root): 
     if not root: return []
-    
+
     q = deque([root])
     res = []
     left_to_right = True
