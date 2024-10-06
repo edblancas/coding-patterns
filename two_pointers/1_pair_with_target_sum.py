@@ -23,5 +23,8 @@ class TestPairWithTargetSum(unittest.TestCase):
         self.assertEqual(pair_with_target_sum([1, 2, 3, 4, 6], 6), [1, 3])
         self.assertEqual(pair_with_target_sum([2, 5, 9, 11], 11), [0, 2])
 
-if __name__ == '__main__':
-    unittest.main()
+def main():
+    test = TestPairWithTargetSum()
+    test.test_pair_with_target_sum()
+
+main()
