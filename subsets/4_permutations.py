@@ -11,8 +11,7 @@ def find_permutation(nums):
                 num_perm.insert(place, n)
                 if len(num_perm) == 3:
                     res.append(num_perm)
-                else:
-                    old_permutations.append(num_perm)
+                old_permutations.append(num_perm)
                 print(num_perm)
 
     print(res)
