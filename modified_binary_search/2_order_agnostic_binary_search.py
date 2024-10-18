@@ -1,7 +1,5 @@
 def binary_search(arr, key):
-    isAsc = True
-    if arr[0] > arr[-1]:
-        isAsc = False
+    isAsc = arr[0] > arr[-1]
 
     lo, hi = 0, len(arr) - 1
     while lo <= hi:
