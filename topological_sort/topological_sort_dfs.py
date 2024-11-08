@@ -15,7 +15,6 @@ def dfs(at, visited, ordering, adj_list):
 def topological_sort_dfs(adj_list):
     visited = set()
     ordering = deque()
-    n = len(adj_list)
     edges = list(adj_list.keys())
     for at in edges:
         if at not in visited:
