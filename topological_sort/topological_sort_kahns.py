@@ -2,11 +2,9 @@
 from collections import deque, defaultdict
 
 
-def topological_sort_kahns(adj_list):
-    inbound = [0] * 4
-    print(inbound)
+def topological_sort_kahns(adj_list, nvertices):
+    inbound = [0] * nvertices
     for _, to in adj_list.items():
-        print(to)
         for inb in to:
             inbound[inb] += 1
 
@@ -33,22 +31,24 @@ def topological_sort_kahns(adj_list):
     return order
 
 
+def edgelist_to_adjlist(edgelist):
+    adjlist = defaultdict(list)
+    for f, to in edgelist:
+        adjlist[f].append(to)
+
+    return adjlist
+
+
 import unittest
 
 
 class TopologicalSortDFS(unittest.TestCase):
-    def edgelist_to_adjlist(self, edgelist):
-        adjlist = defaultdict(list)
-        for f, to in edgelist:
-            adjlist[f].append(to)
-
-        return adjlist
 
     def test_topological_sort_dfs(self):
         edgelist = [[3, 2], [3, 0], [2, 0], [2, 1]]
         # possible answers: [3,2,1,0] or [3,2,0,1]
         self.assertEqual(
-            list(topological_sort_kahns(self.edgelist_to_adjlist(edgelist))),
+            list(topological_sort_kahns(edgelist_to_adjlist(edgelist), 4)),
             [3, 2, 0, 1],
         )
 
@@ -59,3 +59,7 @@ def main():
 
 
 main()
+
+
+edgelist=[[6, 4], [6, 2], [5, 3], [5, 4], [3, 0], [3, 1], [3, 2], [4, 1]]
+print('topological', topological_sort_kahns(edgelist_to_adjlist(edgelist), 7))
